@@ -489,6 +489,11 @@ header
     gap: 24px;
     padding: 32px;
     scroll-snap-align: center;
+    transition: .2s;
+}
+.pricing .price-list article:hover
+{
+    background-color: var(--hover-color);
 }
 
 .pricing .price-list article .card-header
