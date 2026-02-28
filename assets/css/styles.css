@@ -1,0 +1,521 @@
+:root
+{
+    --main-color: #001025;
+    --secondary-color: #00172D;
+    --main-text-color: #FFFFFF;
+    --secondary-text-color: #989898;
+    --sky-blue: #44C5FF;
+    --btn-bg-color: linear-gradient(180deg, #06A7F1 0%, #006BA7 100%);
+    --btn-text-color: #FFFFFF;
+}
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../fonts/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf') format('truetype-variations');
+  font-weight: 300 800;
+  font-stretch: 75% 100%;
+}
+
+.main-text-color{color: var(--main-text-color);}
+.secondary-text-color{color: var(--secondary-text-color);}
+.sky-blue{color: var(--sky-blue);}
+.flex-centered
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-column
+{
+    display: flex;
+    flex-direction: column;
+}
+.btn
+{
+    padding: 16px 64px;
+    font-family: 'Open Sans';
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    color: var(--btn-text-color);
+    background: var(--btn-bg-color);
+    cursor: pointer;
+}
+.info-text
+{
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-style: Light;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: var(--sky-blue);
+}
+section
+{
+    padding: 0 112px;
+}
+
+
+*
+{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body
+{
+    background-color: var(--main-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header
+{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.logo
+{
+    width: 158px;
+    height: 40px;
+    margin: 40px;
+}
+
+
+.hero
+{
+    width: 100%;
+    height: 100vh;
+    background: url(../img/hero.png) no-repeat center;
+    background-size: cover;
+    gap: 32px;
+}
+
+.hero h1
+{
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 64px;
+    line-height: 78px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+.hero p
+{
+    max-width: 576px;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+}
+
+
+
+
+
+.skills
+{
+    gap: 32px;
+    margin-bottom: 137px;
+}
+.skills-header
+{
+    max-width: 832px;
+}
+
+.skills-header .info-text
+{
+    font-size: 14px;
+}
+.skills .skills-header h2
+{
+    margin: 4px 0 24px 0;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+}
+.skills .skills-header p
+{
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+}
+.skills .skills-table
+{
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+.skills .skills-table article
+{
+    max-width: 400px;
+    width: 100%;
+    min-height: 290px;
+    border-radius: 24px;
+    padding: 32px 64px;
+    background: var(--secondary-color);
+    gap: 14px;
+}
+.skills .skills-table article .img-content
+{
+    position: relative;
+    width: 128px;
+    height: 128px;
+}
+.skills .skills-table article .img-content::before{
+    content: '';
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    opacity: 0.5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: var(--sky-blue);
+    filter: blur(36px);
+}
+.skills .skills-table article img
+{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.skills .skills-table article h3
+{
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--sky-blue);
+}
+.skills .skills-table article p
+{
+    display: none;
+}
+
+
+
+
+
+.quote
+{
+    gap: 10px;
+    padding: 64px 112px;
+    background-color: var(--secondary-color);
+}
+.quote .info-text
+{
+    font-size: 18px;
+}
+.quote blockquote
+{
+    max-width: 1408px;
+    font-weight: 700;
+    font-size: 32px;
+    text-align: center;
+}
+
+
+
+
+
+
+.why-us
+{
+    padding: 160px 10px;
+    margin: 0 auto; 
+    flex-direction: row;
+    gap: 32px;
+    flex-wrap: wrap;
+}
+.why-us .content
+{
+    gap: 24px;
+    max-width: 687.5px;
+}
+.why-us .content .info-text
+{
+    font-size: 14px;
+}
+.why-us .content .why-us-header
+{
+    gap: 4px;
+}
+.why-us .content h2
+{
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 32px;
+}
+.why-us .content p
+{
+    font-weight: 400;
+    font-size: 20px;
+}
+.why-us ul
+{
+    gap: 24px;
+}
+.why-us ul li
+{
+    width: 100%;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    background: var(--secondary-color);
+    padding: 16px;
+    gap: 16px;
+    border-radius: 9999px;
+}
+.why-us ul li .img-content
+{
+    width: 64px;
+    height: 64px;
+    background-color: #02213A;
+    border-radius: 50%;
+}
+.why-us ul li .text-content
+{
+    gap: 8px;
+}
+.why-us ul li .text-content h3
+{
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.why-us ul li .text-content p
+{
+    font-weight: 400;
+    font-size: 16px;
+}
+
+
+
+
+
+.founder-quote
+{
+    max-width: 1696px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    border-radius: 24px;
+    gap: 32px;
+    padding: 48px;
+    background-color: var(--secondary-color);
+}
+.founder-quote .img-content
+{
+    width: 305px;
+    height: 305px;
+}
+.founder-quote .img-content img
+{
+    width: 305px;
+    height: 305px;
+}
+.founder-quote .text-content
+{
+    max-width: 880px;
+    gap: 24px;
+}
+.founder-quote .text-content .quote-header
+{
+    gap: 4px;
+}
+.founder-quote .text-content .info-text
+{
+    font-weight: 300;
+    font-size: 14px;
+}
+.founder-quote .text-content h2
+{
+    font-weight: 700;
+    font-size: 32px;
+}
+.founder-quote .text-content p
+{
+    font-weight: 400;
+    font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 768px) {
+    section
+    {
+        padding: 0 24px;
+    }
+    .quote
+    {
+        gap: 8px;
+        padding: 32px 64px;
+    }
+    .founder-quote
+    {
+        flex-direction: column-reverse;
+        padding: 8px;
+        gap: 16px;
+    }
+    .founder-quote .text-content
+    {
+        text-align: center;
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    section
+    {
+        padding: 0;
+    }
+    .btn
+    {
+        padding: 16px 40px;
+        font-size: 16px;
+    }
+    .hero h1 {
+        font-size: 32px;
+        line-height: 38px;
+    }
+    .hero p,
+    .skills .skills-header p
+    {
+        max-width: 340px;
+        font-size: 16px;
+    }
+    .skills
+    {
+        gap: 12px;
+        margin-bottom: 80px;
+    }
+    .skills .skills-header h2
+    {
+        font-size: 24px;
+        margin: 4px 0 12px 0;
+    }
+    .skills .skills-table
+    {
+        gap: 10px;
+    }
+    .skills .skills-table article
+    {
+        max-width: 165px;
+        min-height: 204px;
+        gap: 4px;
+        padding: 8px;
+    }
+    .skills .skills-table article .img-content
+    {
+        width: 96px;
+        height: 96px;
+    }
+    .skills .skills-table article .img-content::before{
+        width: 72px;
+        height: 72px;
+    }
+    .skills .skills-table article p
+    {
+        display: block;
+        color: var(--main-text-color);
+        font-weight: 400;
+        font-size: 14px;
+        text-align: center;
+    }
+
+        
+    .quote
+    {
+        gap: 8px;
+        padding: 24px 10px;
+    }
+    .quote .info-text
+    {
+        font-size: 14px;
+    }
+    .quote blockquote
+    {
+        max-width: 340px;
+        font-size: 20px;
+    }
+
+    .why-us
+    {
+        padding: 80px 10px;
+        gap: 12px;
+    }
+    .why-us .content
+    {
+        text-align: center;
+        gap: 12px;
+    }
+    .why-us .content h2
+    {
+        font-size: 24px;
+    }
+    .why-us ul li
+    {
+        border-radius: 24px;
+        gap: 8px;
+        padding: 8px;
+    }
+    .why-us ul li .img-content
+    {
+        width: 72px;
+        height: 72px;
+    }
+    .why-us ul li .img-content img
+    {
+        width: 40.5px;
+        height: 40.5px;
+    }
+    .why-us ul li .text-content
+    {
+        max-width: 244px;
+    }
+
+    .founder-quote .text-content
+    {
+        gap: 12px;
+    }
+    .founder-quote .text-content h2
+    {
+        font-size: 20px;
+    }
+    .founder-quote .text-content p
+    {
+        font-size: 16px;
+    }
+}
