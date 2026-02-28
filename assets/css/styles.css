@@ -7,6 +7,7 @@
     --sky-blue: #44C5FF;
     --btn-bg-color: linear-gradient(180deg, #06A7F1 0%, #006BA7 100%);
     --btn-text-color: #FFFFFF;
+    --hover-color: #44c4ff41;
 }
 @font-face {
   font-family: 'Open Sans';
@@ -23,6 +24,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+p
+{
+    color: var(--secondary-text-color);
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    font-weight: 400;
+    text-align: center;
+
+}
+h1,
+h2
+{
+    color: var(--main-text-color);
+}
+h2
+{
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 100%;
+    letter-spacing: 0%;
 }
 .flex-column
 {
@@ -47,6 +70,7 @@
 }
 .info-text
 {
+    font-size: 14px;
     font-family: 'Open Sans';
     font-weight: 300;
     font-style: Light;
@@ -58,6 +82,25 @@
 section
 {
     padding: 0 112px;
+}
+.img-content.neon-light
+{
+    position: relative;
+    width: 128px;
+    height: 128px;
+}
+.neon-light::before{
+    content: '';
+    position: absolute;
+    width: 96px;
+    height: 96px;
+    opacity: 0.5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: var(--sky-blue);
+    filter: blur(36px);
 }
 
 
@@ -89,6 +132,15 @@ header
     margin: 40px;
 }
 
+.hero,
+.skills,
+.why-us,
+.founder-quote,
+.results,
+.pricing
+{
+    gap: 32px;
+}
 
 .hero
 {
@@ -96,7 +148,6 @@ header
     height: 100vh;
     background: url(../img/hero.png) no-repeat center;
     background-size: cover;
-    gap: 32px;
 }
 
 .hero h1
@@ -111,11 +162,6 @@ header
 .hero p
 {
     max-width: 576px;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    text-align: center;
 }
 
 
@@ -124,35 +170,15 @@ header
 
 .skills
 {
-    gap: 32px;
     margin-bottom: 137px;
 }
 .skills-header
 {
     max-width: 832px;
 }
-
-.skills-header .info-text
-{
-    font-size: 14px;
-}
 .skills .skills-header h2
 {
     margin: 4px 0 24px 0;
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 32px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    text-align: center;
-}
-.skills .skills-header p
-{
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 20px;
-    line-height: 100%;
-    letter-spacing: 0%;
     text-align: center;
 }
 .skills .skills-table
@@ -171,25 +197,11 @@ header
     padding: 32px 64px;
     background: var(--secondary-color);
     gap: 14px;
+    transition: .2s;
 }
-.skills .skills-table article .img-content
+.skills .skills-table article:hover
 {
-    position: relative;
-    width: 128px;
-    height: 128px;
-}
-.skills .skills-table article .img-content::before{
-    content: '';
-    position: absolute;
-    width: 96px;
-    height: 96px;
-    opacity: 0.5;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: var(--sky-blue);
-    filter: blur(36px);
+    background-color: var(--hover-color);
 }
 .skills .skills-table article img
 {
@@ -244,7 +256,6 @@ header
     padding: 160px 10px;
     margin: 0 auto; 
     flex-direction: row;
-    gap: 32px;
     flex-wrap: wrap;
 }
 .why-us .content
@@ -252,25 +263,17 @@ header
     gap: 24px;
     max-width: 687.5px;
 }
-.why-us .content .info-text
-{
-    font-size: 14px;
-}
-.why-us .content .why-us-header
+.why-us .content .why-us-header,
+.founder-quote .text-content .quote-header,
+.results .results-header,
+.pricing-header div
 {
     gap: 4px;
 }
-.why-us .content h2
+/* .why-us .content p
 {
-    font-weight: 700;
-    font-style: Bold;
-    font-size: 32px;
-}
-.why-us .content p
-{
-    font-weight: 400;
-    font-size: 20px;
-}
+    text-align: left;
+} */
 .why-us ul
 {
     gap: 24px;
@@ -285,6 +288,11 @@ header
     padding: 16px;
     gap: 16px;
     border-radius: 9999px;
+    transition: .2s;
+}
+.why-us ul li:hover
+{
+    background-color: var(--hover-color);
 }
 .why-us ul li .img-content
 {
@@ -303,10 +311,12 @@ header
     font-size: 20px;
     text-transform: uppercase;
 }
-.why-us ul li .text-content p
+.why-us ul li .text-content p,
+.results ul li article .text-content div p
 {
     font-weight: 400;
     font-size: 16px;
+    text-align: left;
 }
 
 
@@ -320,15 +330,10 @@ header
     display: flex;
     align-items: center;
     border-radius: 24px;
-    gap: 32px;
     padding: 48px;
     background-color: var(--secondary-color);
 }
-.founder-quote .img-content
-{
-    width: 305px;
-    height: 305px;
-}
+.founder-quote .img-content,
 .founder-quote .img-content img
 {
     width: 305px;
@@ -339,27 +344,233 @@ header
     max-width: 880px;
     gap: 24px;
 }
-.founder-quote .text-content .quote-header
-{
-    gap: 4px;
-}
-.founder-quote .text-content .info-text
-{
-    font-weight: 300;
-    font-size: 14px;
-}
-.founder-quote .text-content h2
-{
-    font-weight: 700;
-    font-size: 32px;
-}
 .founder-quote .text-content p
 {
-    font-weight: 400;
-    font-size: 20px;
+    text-align: left;
 }
 
 
+.results
+{
+    margin: 160px 0;
+}
+.results ul
+{
+    width: 100%;
+    gap: 24px;
+}
+.results ul li
+{
+    gap: 26.5px;
+
+}
+.results ul li:nth-child(even)
+{
+    flex-direction: row-reverse
+}
+.results ul li article
+{
+    position: relative;
+    max-height: 192px;
+    max-width: 1120px;
+    min-width: 500px;
+    width: 75%;
+    border-radius: 24px;
+    gap: 24px;
+    padding: 32px;
+    background: var(--secondary-color);
+    justify-content: normal;
+    transition: .2s;
+}
+.results ul li:hover article
+{
+    background-color: var(--hover-color);
+}
+.results ul li article::after
+{
+    content: attr(data-step);
+    position: absolute;
+    right: 24px;
+    top: 0;
+    font-size: 256px;
+    font-family: 'Open Sans';
+    font-weight: 800;
+    font-size: 256px;
+    line-height: 70%;
+    letter-spacing: 0%;
+    color: #02213A;
+    z-index: 0;
+}
+.results ul li article > *
+{
+    z-index: 1;
+}
+.results ul li article .img-content
+{
+    width: 128px;
+    height: 128px;
+}
+.results ul li article .img-content img
+{
+    width: 100%;
+    height: 100%;
+}
+.results ul li article .text-content
+{
+    gap: 16px;
+}
+.results ul li article .text-content span
+{
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.results ul li article .text-content div
+{
+    gap: 8px;
+}
+.results ul li article .text-content div h3
+{
+    font-weight: 600;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+.results ul li:nth-child(4) .arrow
+{
+    display: none;
+}
+.results ul li .arrow
+{
+    transition: .2s;
+}
+.results ul li:nth-child(even):hover .arrow
+{
+    transform: rotate(-10deg);
+}
+.results ul li:hover .arrow
+{
+    transform: rotate(10deg);
+}
+
+
+
+
+
+/* .pricing
+{
+} */
+.pricing .pricing-header
+{
+    max-width: 832px;
+    margin: 0 auto;
+    gap: 24px;
+}
+
+.pricing .price-list 
+{
+    overflow-x: auto;
+    gap: 32px;
+    justify-content: flex-start;
+    scroll-snap-type: x mandatory; 
+    scroll-behavior: smooth;
+}
+.pricing .price-list::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+.pricing .price-list article
+{
+    background-color: var(--secondary-color);
+    max-width: 400px;
+    min-width: 340px;
+    width: 100%;
+    border-radius: 24px;
+    gap: 24px;
+    padding: 32px;
+    scroll-snap-align: center;
+}
+
+.pricing .price-list article .card-header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.pricing .price-list article .card-header h3
+{
+    font-weight: 600;
+    font-size: 32px;
+    text-transform: uppercase;
+}
+.pricing .price-list article .card-header span
+{
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.pricing .price-list article ul li
+{
+    list-style: none;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+.pricing .price-list article ul li::before
+{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 6px;
+    /* transform: translateY(-50%); */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.pricing .price-list article ul li[type="yes"]::before
+{
+    background-image: url(../img/yes.svg);
+    width: 15.5px;
+    height: 15.5px;
+}
+
+.pricing .price-list article ul li[type="no"]::before
+{
+    background-image: url(../img/no.svg);
+    width: 12px;
+    height: 12px;
+}
+
+.pricing .price-list article .coming-soon
+{
+    display: inline-block;
+    text-align: center;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 20px;
+
+    padding: 16px 48px;
+}
+
+
+
+footer
+{
+    max-width: 832px;
+    width: 100%;
+    gap: 16px;
+    padding: 32px;
+    margin: 160px auto;
+    background-color: var(--secondary-color);
+    border-radius: 24px;
+}
+footer .btn
+{
+    border-radius: 12px;
+    padding: 16px 40px;
+    gap: 10px;
+}
 
 
 
@@ -389,9 +600,59 @@ header
         padding: 8px;
         gap: 16px;
     }
-    .founder-quote .text-content
+    .founder-quote .text-content,
+    .results .results-header
     {
         text-align: center;
+    }
+    .results
+    {
+        gap: 12px;
+        margin: 80px 0;
+    }
+    
+    .results ul li article
+    {
+        width: 100%;
+        min-width: 0;
+        padding: 8px;
+        gap: 8px;
+    }
+    .results ul li article .img-content
+    {
+        width: 72px;
+        height: 72px;
+    }
+    .results ul li article::after
+    {
+        content: '';
+    }
+    .results ul li article .text-content
+    {
+        gap: 8px;
+    }
+    .results ul li article .text-content div
+    {
+        gap: 4px;
+    }
+    .results ul li .arrow
+    {
+        display: none;
+    }
+    footer
+    {
+        margin: 80px auto;
+        max-width: 340px;
+        padding: 8px 8px 16px 8px;
+        gap: 8px;
+    }
+    footer h2
+    {
+        text-align: center;
+    }
+    footer p
+    {
+        font-size: 16px;
     }
 }
 
@@ -399,7 +660,7 @@ header
 @media screen and (max-width: 480px) {
     section
     {
-        padding: 0;
+        padding: 0 10px;
     }
     .btn
     {
@@ -442,9 +703,15 @@ header
         width: 96px;
         height: 96px;
     }
-    .skills .skills-table article .img-content::before{
+    .img-content.neon-light::before
+    {
         width: 72px;
         height: 72px;
+    }
+    .results .img-content.neon-light::before
+    {
+        width: 54px;
+        height: 54px;
     }
     .skills .skills-table article p
     {
@@ -517,5 +784,16 @@ header
     .founder-quote .text-content p
     {
         font-size: 16px;
+        text-align: center;
+    }
+    .results ul
+    {
+        gap: 10px;
+    }
+    .pricing .price-list article
+    {
+        min-width: 300px;
+        gap: 8px;
+        padding: 8px;
     }
 }
