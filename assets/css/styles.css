@@ -54,6 +54,8 @@ h2
 }
 .btn
 {
+    position: relative;
+    overflow: hidden;
     padding: 16px 64px;
     font-family: 'Open Sans';
     font-weight: 700;
@@ -65,8 +67,31 @@ h2
     border: none;
     border-radius: 12px;
     color: var(--btn-text-color);
-    background: var(--btn-bg-color);
+    background: linear-gradient(180deg, #06A7F1 0%, #006BA7 100%);
     cursor: pointer;
+    transition: all .4s;
+}
+.btn span
+{
+    position: relative;
+    z-index: 2;
+}
+.btn::before
+{
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(99.85deg, #B8E7FF 0%, #006BA7 100%);
+    opacity: 0;
+    transition: 0.4s;
+}
+.btn:hover
+{
+    box-shadow: 0px 4px 50px 0px #44C5FF80;
+}
+.btn:hover::before
+{
+    opacity: 1;
 }
 .info-text
 {
@@ -101,6 +126,7 @@ section
     border-radius: 50%;
     background: var(--sky-blue);
     filter: blur(36px);
+    transition: .3s;
 }
 
 
@@ -190,6 +216,7 @@ header
 }
 .skills .skills-table article
 {
+    position: relative;
     max-width: 400px;
     width: 100%;
     min-height: 290px;
@@ -198,10 +225,34 @@ header
     background: var(--secondary-color);
     gap: 14px;
     transition: .2s;
+    overflow: hidden;
 }
-.skills .skills-table article:hover
+.skills .skills-table article::before,
+.skills .skills-table article::after
 {
-    background-color: var(--hover-color);
+    content: '';
+    position: absolute;
+    background: var(--sky-blue);
+    transition: .3s;
+    opacity: 0;
+}
+.skills .skills-table article::before
+{
+    bottom: 0;
+    left: 0;
+    width: 201px;
+    height: 201px;
+    transform: translate(-50%, 50%);
+    filter: blur(80px);
+}
+.skills .skills-table article::after
+{
+    top: 0;
+    right: 0;
+    width: 258px;
+    height: 258px;
+    transform: translate(50%, -50%);
+    filter: blur(100px)
 }
 .skills .skills-table article img
 {
@@ -219,9 +270,41 @@ header
     text-transform: uppercase;
     color: var(--sky-blue);
 }
+.skills .skills-table article div,
+.skills .skills-table article h3
+{
+    transform: translateY(29px);
+    transition: .3s;
+}
 .skills .skills-table article p
 {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+.skills .skills-table article:hover p
+{
+    opacity: 1;
+    visibility: visible;
+}
+.skills .skills-table article:hover .neon-light::before
+{
+    opacity: 0;
+}
+.skills .skills-table article:hover div,
+.skills .skills-table article:hover h3
+{
+    transform: translate(0);
+}
+.skills .skills-table article:hover::before
+{
+    bottom: 100%;
+    opacity: 0.7;
+}
+.skills .skills-table article:hover::after
+{
+    top: 100%;
+    opacity: 0.5;
 }
 
 
@@ -280,6 +363,7 @@ header
 }
 .why-us ul li
 {
+    position: relative;
     width: 100%;
     display: flex;
     list-style: none;
@@ -288,11 +372,21 @@ header
     padding: 16px;
     gap: 16px;
     border-radius: 9999px;
-    transition: .2s;
+    overflow: hidden;
+    transition: .5s;
 }
-.why-us ul li:hover
+.why-us ul li::before
 {
-    background-color: var(--hover-color);
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, #44C5FF4D, #02213A00);
+    opacity: 0;
+    transition: .5s;
 }
 .why-us ul li .img-content
 {
@@ -300,6 +394,13 @@ header
     height: 64px;
     background-color: #02213A;
     border-radius: 50%;
+    transition: .5s;
+}
+.why-us ul li .img-content img
+{
+    width: 32px;
+    height: 32px;
+    transition: .5s;
 }
 .why-us ul li .text-content
 {
@@ -319,12 +420,18 @@ header
     text-align: left;
 }
 
+.why-us ul li:hover{box-shadow: -16px 0px 40px 0px #29708F33;}
+.why-us ul li:hover::before{opacity: 1;}
+.why-us ul li:hover .img-content{background-color: transparent;}
+.why-us ul li:hover .img-content img{width: 40px;height: 40px;}
+
 
 
 
 
 .founder-quote
 {
+    position: relative;
     max-width: 1696px;
     margin: 0 auto;
     display: flex;
@@ -332,6 +439,28 @@ header
     border-radius: 24px;
     padding: 48px;
     background-color: var(--secondary-color);
+    overflow: hidden;
+}
+.founder-quote::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    width: 489px;
+    height: 489px;
+    opacity: 0;
+    background: var(--sky-blue);
+    filter: blur(200px);
+    z-index: 1;
+    transition: .5s;
+}
+.founder-quote:hover::before
+{
+    opacity: .7;
+    top: 100%;
+    left: 100%;
 }
 .founder-quote .img-content,
 .founder-quote .img-content img
@@ -381,10 +510,33 @@ header
     background: var(--secondary-color);
     justify-content: normal;
     transition: .2s;
+    overflow: hidden;
 }
-.results ul li:hover article
+.results ul li article .neon-light::before
 {
-    background-color: var(--hover-color);
+    transition-delay: .1s;
+}
+.results ul li article:hover .neon-light::before
+{
+    opacity: 0;
+}
+.results ul li article::before
+{
+    content: '';
+    position: absolute;
+    top: -51px;
+    right: calc(100% + 134px);
+    width: 487px;
+    height: 487px;
+    background-color: var(--sky-blue);
+    filter: blur(250px);
+    opacity: 0;
+    transition: .5s;
+}
+.results ul li article:hover::before
+{
+    opacity: 0.5;
+    right: -134px;
 }
 .results ul li article::after
 {
@@ -414,6 +566,11 @@ header
 {
     width: 100%;
     height: 100%;
+    transition: .3s;
+}
+.results ul li article:hover .img-content img
+{
+    transform: scale(1.1);
 }
 .results ul li article .text-content
 {
@@ -438,19 +595,11 @@ header
 
 .results ul li:nth-child(4) .arrow
 {
-    display: none;
+    opacity: 0;
 }
 .results ul li .arrow
 {
     transition: .2s;
-}
-.results ul li:nth-child(even):hover .arrow
-{
-    transform: rotate(-10deg);
-}
-.results ul li:hover .arrow
-{
-    transform: rotate(10deg);
 }
 
 
@@ -481,6 +630,7 @@ header
 }
 .pricing .price-list article
 {
+    position: relative;
     background-color: var(--secondary-color);
     max-width: 400px;
     min-width: 340px;
@@ -490,10 +640,30 @@ header
     padding: 32px;
     scroll-snap-align: center;
     transition: .2s;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+.pricing .price-list article::before
+{
+    content: '';
+    position: absolute;
+    top: calc(100% + 31px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--sky-blue);
+    width: 292px;
+    height: 292px;
+    opacity: 0.5;
+    transition: .3s;
+    filter: blur(125px)
+}
+.pricing .price-list article:hover::before
+{
+    top: -203px;
 }
 .pricing .price-list article:hover
 {
-    background-color: var(--hover-color);
+    border: 1px solid var(--sky-blue);
 }
 
 .pricing .price-list article .card-header
@@ -528,7 +698,6 @@ header
     position: absolute;
     left: 0;
     top: 6px;
-    /* transform: translateY(-50%); */
     background-size: contain;
     background-repeat: no-repeat;
 }
